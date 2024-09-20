@@ -1,0 +1,370 @@
+/* Основные стили */
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgb(0,59,50);
+    color: white;
+    text-align: center;
+    padding: 1.5em;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+nav ul li#user-info {
+    display: inline-block;
+}
+
+nav ul li#user-info span {
+    margin-right: 10px;
+}
+
+nav ul li#user-info button {
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li#user-info button:hover {
+    background-color: #e74c3c;
+}
+
+/* Секции */
+section {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Поля ввода и формы */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border-color: rgb(0,59,50);
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 33, 71, 0.5);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Кнопки */
+button {
+    background-color: rgb(0,59,50);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: rgb(0,51,42);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: rgb(0,59,50);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Адаптивность */
+@media screen and (max-width: 1024px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+/* Стили для отображения изображений и новых элементов */
+.event-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.event-item img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.event-item .event-details {
+    flex-grow: 1;
+}
+
+.event-item .event-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.event-item button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
+}
+
+.event-item button:hover {
+    background-color: #c0392b;
+}
+
+/* Адаптивность */
+@media screen and (max-width: 1024px) {
+    .event-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .event-item img {
+        margin: 10px 0;
+    }
+}
+.event-item {
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    position: relative;
+    color: white; /* Цвет текста */
+}
+
+.event-details {
+    position: relative;
+    z-index: 1; /* Чтобы текст был поверх фона */
+}
+
+.event-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный чёрный фон для улучшения читаемости текста */
+    z-index: 0; /* Под текстом */
+}
+.event-item {
+    position: relative;
+    color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.event-details {
+    z-index: 1;
+    position: relative;
+}
+
+.event-actions {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1;
+}
+.event-item {
+    position: relative;
+    color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 100px;
+}
+
+.event-details {
+    position: relative;
+    z-index: 1;
+}
+
+.event-actions {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+.event-actions button {
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для кнопки */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.event-actions button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+button {
+    margin: 5px;
+}
+/* Стили для видео в заголовке */
+#video-container {
+    position: absolute;
+    top: 20px; /* Расстояние от верхнего края, увеличено для дополнительного пространства */
+    left: 10px; /* Расстояние от левого края */
+    width: 100px; /* Ширина видео */
+    height: 75px; /* Высота видео */
+    overflow: hidden;
+}
+
+#header-video {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; Обрезает видео, чтобы заполнить контейнер */
+}
+
+/* Позиционирование заголовка и навигации */
+header {
+    position: relative;
+    padding: 20px 20px 10px 20px; /* Добавлено пространство сверху и снизу */
+    background: rgb(0,59,50); /* Пример фона для заголовка */
+    border-bottom: 1px solid rgb(0,59,50); /* Линия под заголовком */
+}
+
+h1 {
+    margin-left: 120px; /* Оставляем место для видео */
+}
